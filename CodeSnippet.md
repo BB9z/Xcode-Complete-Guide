@@ -73,7 +73,7 @@ Tips：
 再如，为了快速声明属性，我有一组代码片段：
 
 快捷键 | 代码片段内容
--|-
+-----|----
 @pa  | @property(assign, nonatomic) <#type#> <#name#>;
 @pc  | @property(copy, nonatomic) NSString *<#var#>;
 @pr  | @property(readonly, nonatomic) <#type#> <#name#>;
