@@ -88,4 +88,8 @@ Tips：
 
 ![属性补全例子](image/code_sinppet_my_example_property.png)
 
-如果补全的是一个或多个完整的方法，我通常用 `@` 作为开头，不赘述了，可以到 https://github.com/BB9z/xcode-config/tree/master/UserData/CodeSnippets 获取我的代码片段试一试。
+如果补全的是一个或多个完整的方法，我通常用 `@` 作为开头，下面是我补全 setter 的动画演示：
+
+![setter 补全动画](image/code_sinppet_my_example_setter.gif)
+
+你可以到 https://github.com/BB9z/xcode-config/tree/master/UserData/CodeSnippets 获取我的代码片段试一试。
