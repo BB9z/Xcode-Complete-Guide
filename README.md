@@ -3,6 +3,7 @@
 Xcode 完全指南
 ====
 
+* [ColorPickers插件](ColorPickers.md)
 
 武装你的 Xcode
 ----
