@@ -10,9 +10,15 @@ Xcode 完全指南
 * [使用 Code Snippet 加速编码](CodeSnippet.md)
 
 
+问题解决
+----
+这部分还没规划好，先放这。
+
+* [案例：Xcode 5 下使用 PSTCollectionView](SolveCase1.md)
+
 Contribute
 ----
-Any contribute are welcome, e.g.. translate this repo to your language.
+Any contribute are welcome, e.g.. translate this repo into another language.
 
 
 Lisence
