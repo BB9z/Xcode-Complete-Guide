@@ -1,5 +1,7 @@
-写在前面
------
+# 案例：更新 SDK 后 PSTCollectionView 闪退问题解决
+
+## 写在前面
+
 我发现身边有些这样的人：
 
 * 遇到错误不看错误信息就开始胡乱试着改正的
@@ -8,21 +10,20 @@
 
 所以，这个系列，我想通过展示自己是如何分析解决问题，给有类似情况的人一些指引，得到启发并提高自身解决问题的能力。
 
-问题描述
-----
+## 问题描述
+
 Xcode 更新到 5 之后，用户反映应用在 iOS 5 上闪退。
 
-解决步骤及动机分析
-----
+## 解决步骤及动机分析
 
 1. 解决这个问题首先要找到闪退的原因，因为用户没有提供额外的信息，只能自己跑跑看了。
 
 2. 在 iOS 5 模拟器上跑了一下，果然一启动就报异常了：
 
+    ```log
+    *** Terminating app due to uncaught exception 'NSInternalInconsistencyException',
+    reason: 'The NIB data is invalid.'
     ```
-*** Terminating app due to uncaught exception 'NSInternalInconsistencyException',
-reason: 'The NIB data is invalid.'
-```
 
 3. 阅读这段错误信息，异常的原因是“The NIB data is invalid”，nib 文件的格式不正确？
 
@@ -33,11 +34,11 @@ reason: 'The NIB data is invalid.'
 
 6. 把这个选项改成 iOS 5 再试，<kbd>⌘+R</kbd> 运行，结果产生了编译错误：
 
+    ```log
+    Class Unavailable: UICollectionViewLayout on iOS versions prior to 6.0
+    Class Unavailable: UICollectionView on iOS versions prior to 6.0
+    Class Unavailable: UICollectionReusableView on iOS versions prior to 6.0
     ```
-Class Unavailable: UICollectionViewLayout on iOS versions prior to 6.0
-Class Unavailable: UICollectionView on iOS versions prior to 6.0
-Class Unavailable: UICollectionReusableView on iOS versions prior to 6.0
-```
 
 7. 看这个错误信息，很清楚的报告了 UICollectionView 只在 iOS 6 之后可用，而我们现在让它编译为 iOS 5 的版本。
 
@@ -62,6 +63,7 @@ Class Unavailable: UICollectionReusableView on iOS versions prior to 6.0
 16. 既然最新的版本也这样，那只能到 Pull Requests 和 Issues 看看了。Pull Requests 没有，直接去看 Issues。
 
 17. Open 的 Issues 有 50 个左右，而且不少都是很久以前的了，5个月内活跃的只有十多个：
+
     * Performance Improvement: Hide cells instead of removing them
     * Compilation error when used with other common source libraries
     * PSTCollectionView crach on IOS 5 when scroll
@@ -75,21 +77,19 @@ Class Unavailable: UICollectionReusableView on iOS versions prior to 6.0
     * Highlight color doesn't disappear
     * Line Layout with imageView, odd behaviour
     * Issue when subclassing PSUICollectionViewFlowLayout
-    
+
 18. 看标题只有“Crashes on iOS < 6.0”这个符合，但进去看了不是我们遇到的问题，其他的也是一样。
 
 19. 还不放弃，看看关闭的吧，已经关的 Issues 很多，但因为是最近的问题，所以不必看很多，前两页足够了（除了时间、评论个数也比较有参考价值）。如果以 iOS 5 为关键字的话，稍微“贴边”的有：
 
-    a. PSTCollectionView crach on IOS 5 when scroll
-    b. PSUICollectionViewCell's user interaction flag not working for iOS5
-    c. Correctly decoding reuseIdentifier when loading from Nib
-    d. How to use PSTCollectionView in Xcode 5 with Base SDK iOS 7, and minimum supported version of iOS 5
-    e. compile error in ios5.1
-    
-    这里面真正符合我们问题的其实只有 d 和 e，而且也正是在 d 中得到的答案。链接奉上： https://github.com/steipete/PSTCollectionView/issues/344
-    
+    1. PSTCollectionView crach on IOS 5 when scroll
+    2. PSUICollectionViewCell's user interaction flag not working for iOS5
+    3. Correctly decoding reuseIdentifier when loading from Nib
+    4. How to use PSTCollectionView in Xcode 5 with Base SDK iOS 7, and minimum supported version of iOS 5
+    5. compile error in ios5.1
+
+    这里面真正符合我们问题的其实只有 4 和 5，而且也正是在 4 中得到的答案。链接奉上：PSTCollectionView/issues/344 （已失效）
+
 以上就是解决的全过程。
 
 多说一句，Cocoa 的错误信息通常都很准确，说的是哪里的问题就是哪里的。
-
- 
