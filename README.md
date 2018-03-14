@@ -2,12 +2,10 @@
 
 <base href="//github.com/BB9z/Xcode-Complete-Guide/blob/master/" />
 
-* [优化工作区](Workspace.md)
-
 ## 武装你的 Xcode
 
+* [优化工作区](Workspace.md)
 * [使用 Code Snippet 加速编码](CodeSnippet.md)
-
 
 ## 问题解决
 
@@ -19,7 +17,6 @@
 
 Any contribute are welcome, e.g.. translate this repo into another language.
 
-
 ## Lisence
 
-<p align="center"><a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
+<p align="center"><a rel="license" href="https://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.</p>
