@@ -2,9 +2,12 @@
 
 <base href="//github.com/BB9z/Xcode-Complete-Guide/blob/master/" />
 
+* [调试器使用指南](Debugger.md)
+
 ## 武装你的 Xcode
 
 * [优化工作区](Workspace.md)
+* [热键](KeyBinding.md)
 * [使用 Code Snippet 加速编码](CodeSnippet.md)
 
 ## 问题解决
